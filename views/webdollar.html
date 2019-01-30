@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  {{> partials/head }}
+</head>
+
+<body>
+  {{> partials/header }}
+
+  <div class="main-container">
+    <nav aria-label="breadcrumb" role="navigation" class="bg-primary text-white">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Home</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">Tools and Services developed for WebDollar</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <ul>
+          <li>
+            <a href="https://webdollarminingpool.com" target="_blank">Mining Pool (WMP)</a>
+          </li>
+          <li>
+            <a href="http://nodes.wd.hostero.eu" target="_blank">Full Nodes Monitor</a>
+          </li>
+          <li>
+            <a href="http://calculator.wd.hostero.eu" target="_blank">Mining Reward Calculator</a>
+          </li>
+          <li>
+            <a href="http://hash.wd.hostero.eu/dashboard/db/webdollar-global-hashing-power" target="_blank">Global Hashing Chart</a>
+          </li>
+          <li>
+            <a href="http://data.hoste.ro/builds" target="_blank">Packaged Miners</a>
+          </li>
+          <li>
+            <a href="http://data.hoste.ro/docs" target="_blank">Code Documentation</a>
+          </li>
+          <li>
+            <a href="https://github.com/WebDollar/Node-WebDollar/wiki/Testnet" target="_blank">Testnet</a>
+          </li>
+        </ul>
+        </h1>
+      </div>
+    </div>
+
+    {{> partials/footer }}
+  </div>
+
+  {{> partials/scripts }}
+</body>
+
+</html>

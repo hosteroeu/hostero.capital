@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  {{> partials/head }}
+</head>
+
+<body>
+  {{> partials/header }}
+
+  <div class="main-container">
+    <section class="bg-primary text-light p-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div class="space-lg pb-0">
+              <h1 class="display-4">Pricing</h1>
+              <span class="lead">
+                Subscriptions based on the required number of miners.
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <svg class="decorative-divider" preserveAspectRatio="none" viewbox="0 0 100 100">
+          <polygon fill="#F8F9FB" points="0 100 100 100 100 0"></polygon>
+      </svg>
+    </section>
+
+    {{> partials/plans }} {{> partials/subscribe }} {{> partials/announcement }} {{> partials/footer }}
+  </div>
+
+  {{> partials/scripts }}
+</body>
+
+</html>

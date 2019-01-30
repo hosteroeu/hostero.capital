@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  {{> partials/head }}
+</head>
+
+<body>
+  {{> partials/header }}
+
+  <div class="main-container">
+    <nav aria-label="breadcrumb" role="navigation" class="bg-primary text-white">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Home</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">CPU Mineable Coins</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section>
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col">
+            <div class="media align-items-center">
+              <img alt="CPU Icon" src="/assets/img/cpu_icon.png" class="avatar avatar-lg avatar-square opacity-40" />
+              <div class="media-body">
+                <div class="mb-3">
+                  <h1 class="h2 mb-2">Directory with CPU Mineable Coins</h1>
+                  <span>The coins on the directory are eventually all going to be available on the platform. Hostero is gradually adding new coins and always looking for coins that are launched recently.</span>
+                </div>
+                <div>
+                  <ul class="list-inline text-small d-inline-block">
+                    <li class="list-inline-item"><i class="icon-link"></i> <a href="https://api.hostero.eu/v1/coins" target="_blank">https://api.hostero.eu/v1/coins</a>
+                    </li>
+                    <li class="list-inline-item"><i class="icon-folder"></i> {{coins_no}}</li>
+                    <!--<li class="list-inline-item"><i class="icon-message"></i> 6</li>-->
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-auto">
+            <a class="btn btn-primary" href="https://goo.gl/forms/BnKLLU00rir6mCvF3" target="_blank"><i class="icon-circle-with-plus mr-1"></i> Submit Coin</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="flush-with-above">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <table class="table table-hover align-items-center table-borderless">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Availability</th>
+                  <th scope="col">&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#coins}}
+                <tr class="bg-white">
+                  <th scope="row">
+                    <div class="media align-items-center">
+                      <img alt="Logo" src="{{{logo_url}}}" class="avatar opacity-80" />
+                      <div class="media-body">
+                        <span class="h6 mb-0"><strong><a href="/coins/{{internal_name}}">{{name}}</a></strong>
+                          {{#cmc_url}}
+                          (<a href="{{{cmc_url}}}" target="_blank">{{short_name}}</a>)
+                          {{/cmc_url}}
+                          {{^cmc_url}}({{short_name}}){{/cmc_url}}
+                        </span>
+
+                        <p><span class="small">Algo(s): {{algorithm}}</span></p>
+                        {{#cpu_only}}
+                        <span class="badge badge-secondary">CPU Only</span>
+                        {{/cpu_only}}
+                        {{#fixed_supply}}
+                        <span class="badge badge-info">Fixed Supply</span>
+                        {{/fixed_supply}}
+                      </div>
+                    </div>
+                  </th>
+                  <td>{{description}}</td>
+                  <td>
+                    {{#on_hostero}}
+                      <a class="btn btn-outline-secondary" href="https://dashboard.hostero.eu">Start Mining</a>
+                    {{/on_hostero}}
+                    {{^on_hostero}} <center>-</center> {{/on_hostero}}
+                  </td>
+                  <td>
+                    <div class="dropdown">
+                      <button class="btn btn-sm btn-outline-primary dropdown-toggle dropdown-toggle-no-arrow" type="button" id="dropdownMenuButton-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="icon-dots-three-horizontal"></i>
+                        </button>
+                      <div class="dropdown-menu dropdown-menu-sm" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{{website_url}}}" target="_blank">Website</a>
+                        <div class="dropdown-divider"></div>
+                        {{#explorer_url}}
+                        <a class="dropdown-item" href="{{{explorer_url}}}" target="_blank">Explorer</a>
+                        {{/explorer_url}}
+                        {{#exchange_url}}
+                        <a class="dropdown-item" href="{{{exchange_url}}}" target="_blank">Exchange</a>
+                        {{/exchange_url}}
+                        {{#statistics_url}}
+                        <a class="dropdown-item" href="{{{statistics_url}}}" target="_blank">Statistics</a>
+                        {{/statistics_url}}
+                        {{#calculator_url}}
+                        <a class="dropdown-item" href="{{{calculator_url}}}" target="_blank">Calculator</a>
+                        {{/calculator_url}}
+                        {{#mining_pools_url}}
+                        <a class="dropdown-item" href="{{{mining_pools_url}}}" target="_blank">Mining Pools</a>
+                        {{/mining_pools_url}}
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table-divider"></tr>
+                {{/coins}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {{> partials/footer_small }}
+  </div>
+
+  {{> partials/scripts }}
+</body>
+
+</html>

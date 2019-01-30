@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  {{> partials/head }}
+</head>
+
+<body>
+  {{> partials/header }}
+
+  <div class="main-container">
+    <nav aria-label="breadcrumb" role="navigation" class="text-white position-absolute">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Home</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">Getting Started</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="bg-primary text-light p-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div class="space-lg pb-0">
+              <h1 class="display-4">Purchase WebDollar</h1>
+              <span class="lead">
+                Learn how to purchase WebDollar.
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <svg class="decorative-divider" preserveAspectRatio="none" viewbox="0 0 100 100">
+        <polygon fill="#F8F9FB" points="0 100 100 100 100 0"></polygon>
+      </svg>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-2 mb-5">
+            <nav class="nav flex-md-column">
+              <a href="/changelog" class="nav-link">Changelog <span class="badge badge-secondary">v1</span></a>
+            </nav>
+            <hr class="short">
+            <nav class="nav flex-md-column mb-2">
+              <a href="/getting-started" class="nav-link">Getting Started</a>
+              <a href="/purchase-webdollar" class="active nav-link">Purchase WebDollar</a>
+            </nav>
+
+          </div>
+          <div class="col-12 col-md-8">
+            <article id="setting-up-dev-tools">
+              <h3>
+                <p>Purchasing instructions</p>
+              </h3>
+              <div>
+                <p>You first need to create a wallet in order to store the WEBD coins you buy. There are multiple methods of buying WebDollar.</p>
+
+                <div class="alert alert-primary" role="alert">
+                  Please be careful when using any of the methods described in this article. Hostero does not take responsability for possible issues. Always use an escrow.
+                </div>
+
+                <h2>1. Create a wallet</h2>
+                <p>Go to <a target="_blank" href="https://webdollar.io" data-toggle="tooltip" data-placement="top" title="Open in new tab">WebDollar.io <i class="icon-popup"></i></a> and use the wallet generated.</p>
+
+                <h3>2. Buy from WebDollarPool</h3>
+                <p>Go to <a target="_blank" href="https://trade.webdollarpool.win" data-toggle="tooltip" data-placement="top" title="Open in new tab">WebDollarPool.win <i class="icon-popup"></i></a> and make a buy request.</p>
+
+                <h3>3. Buy from Telegram users</h3>
+                <p>To be added.</p>
+
+              </div>
+            </article>
+
+            <article id="feedback">
+              <h3>
+                                    <p>Giving Feedback</p>
+                                </h3>
+              <div>
+                <p>We strive to improve our products and we rely on feedback from our users.</p>
+                <p>Please feel free to share any feedback about Hostero via twitter <a href="https://twitter.com/hosteroeu">@hosteroeu</a> or hosteroeu@gmail.com.</p>
+
+              </div>
+            </article>
+          </div>
+          <div class="col">
+            <nav id="nav-components" class="nav flex-md-column" data-sticky="below-nav">
+              <a data-smooth-scroll href="mailto:hosteroeu@gmail.com" class="nav-link text-small">Support</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {{> partials/start_mining }}
+    {{> partials/subscribe }}
+    {{> partials/footer }}
+  </div>
+
+  {{> partials/scripts }}
+</body>
+
+</html>
