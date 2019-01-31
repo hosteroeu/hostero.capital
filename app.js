@@ -12,7 +12,7 @@ function render_404(req, res) {
   res.status(404).render('404', {
     title: 'Page not found',
     description: 'The page you requested couldn\'t be found.',
-    link: 'https://www.hostero.capital/',
+    link: 'https://www.webdollar.fund/',
     keywords: 'mining, software, crypto, cpu, statistics, miner, universal cpu miner, cpu miner, webdollar, nerva, webchain'
   });
 }
@@ -51,14 +51,14 @@ app.all(/.*/, function(req, res, next) {
 
 app.get('/robots.txt', function(req, res) {
   res.type('text/plain');
-  res.send("User-agent: *\nDisallow:\nSitemap: https://www.hostero.capital/assets/sitemap.xml");
+  res.send("User-agent: *\nDisallow:\nSitemap: https://www.webdollar.fund/assets/sitemap.xml");
 });
 
 app.get('/', function(req, res) {
   res.render('index', {
-    title: 'Mining software for CPU cryptocurrencies',
+    title: 'WebDollar.fund',
     description: 'Start mining cryptocurrency in a few minutes. Mine the most profitable coins and unlock the full potential of your mining rigs.',
-    link: 'https://www.hostero.eu',
+    link: 'https://www.webdollar.fund',
     keywords: 'mining, software, crypto, cpu, statistics, miner, universal cpu miner, cpu miner, webdollar, nerva, webchain'
   });
 });
@@ -82,5 +82,5 @@ app.get('/cpu-minable-coins', function(req, res) {
 app.get('*', render_404);
 
 app.listen(port, function() {
-  console.log('Hostero.capital site listening on port', port);
+  console.log('webdollar.fund site listening on port', port);
 });
