@@ -56,7 +56,7 @@ app.get('/robots.txt', function(req, res) {
 
 app.get('/', function(req, res) {
   res.render('index', {
-    title: 'Start staking WEBD easy and convenient',
+    title: 'Start staking your WEBD, easy and convenient',
     description: 'The first WebDollar fund that allows your to stake your WEBD without having to be online 24/7',
     link: 'https://www.webdollar.fund',
     keywords: 'mining, software, crypto, stake, pos, webdollar, fund'
