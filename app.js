@@ -12,7 +12,7 @@ function render_404(req, res) {
   res.status(404).render('404', {
     title: 'Page not found',
     description: 'The page you requested couldn\'t be found.',
-    link: 'https://www.webdollar.fund/',
+    link: 'https://www.webdollar.fund',
     keywords: 'mining, software, crypto, cpu, statistics, miner, universal cpu miner, cpu miner, webdollar, nerva, webchain'
   });
 }
@@ -51,15 +51,15 @@ app.all(/.*/, function(req, res, next) {
 
 app.get('/robots.txt', function(req, res) {
   res.type('text/plain');
-  res.send("User-agent: *\nDisallow:\nSitemap: https://www.webdollar.fund/assets/sitemap.xml");
+  res.send("User-agent: *\nDisallow:\nSitemap: https://www.webdollar.fund/sitemap.xml");
 });
 
 app.get('/', function(req, res) {
   res.render('index', {
-    title: 'WebDollar.fund',
-    description: 'Start mining cryptocurrency in a few minutes. Mine the most profitable coins and unlock the full potential of your mining rigs.',
+    title: 'Start staking WEBD easy and convenient',
+    description: 'The first WebDollar fund that allows your to stake your WEBD without having to be online 24/7',
     link: 'https://www.webdollar.fund',
-    keywords: 'mining, software, crypto, cpu, statistics, miner, universal cpu miner, cpu miner, webdollar, nerva, webchain'
+    keywords: 'mining, software, crypto, stake, pos, webdollar, fund'
   });
 });
 
@@ -73,10 +73,6 @@ app.get('/sitemap.xml', function(req, res) {
       'x-sent': true
     }
   });
-});
-
-app.get('/cpu-minable-coins', function(req, res) {
-  res.redirect(301, 'https://www.hostero.eu/cpu-mineable-coins');
 });
 
 app.get('*', render_404);
