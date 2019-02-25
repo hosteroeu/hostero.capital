@@ -5,8 +5,29 @@ var compression = require('compression');
 var mustacheExpress = require('mustache-express');
 var app = express();
 var port = process.env.PORT || 3000;
+var WEBDSCAN_TOKEN = 'Zjg5YjEwZWVhZWZlM2I5NmY0MTg4NDc3YTUwMmQ2NDkwMjY3MTkwZDVlNjUwNjc5OGM0YTdjOGQ1ZmI2NjgyZg';
+var FOND_ADDRESS = 'WEBD$gCLz8n$U3@h9Ui5rtmtGFuVrWMKVRSy7cT$';
 
 crequest.setCacheDirectory('tmp');
+
+function get_transactions(callback, address) {
+  var url = 'https://www.webdscan.io/api/transactions?address=' + encodeURIComponent(address);
+
+  crequest({
+    url: url,
+    ttl: 3600 * 1000, // 1h
+    auth: {
+      bearer: WEBDSCAN_TOKEN
+    },
+    headers: {
+      accept: 'application/json'
+    }
+  }, function(error, response, body) {
+    var coins = JSON.parse(body);
+
+    callback(error, coins);
+  });
+}
 
 function render_404(req, res) {
   res.status(404).render('404', {
@@ -54,13 +75,43 @@ app.get('/robots.txt', function(req, res) {
   res.send("User-agent: *\nDisallow:\nSitemap: https://www.webdollar.fund/sitemap.xml");
 });
 
+get_transactions(function(err, res) {
+  var total_amount_staked = 0;
+  var deposits = res.length;
+
+  for (var i=0;i<deposits;i++) {
+    var t = res[i];
+
+    total_amount_staked += parseInt(t.amount.amount) / 10000;
+
+    console.log(t);
+  }
+
+  console.log(total_amount_staked);
+}, FOND_ADDRESS);
+
 app.get('/', function(req, res) {
-  res.render('index', {
-    title: 'Start staking your WEBD, easy and convenient',
-    description: 'The first WebDollar fund that allows your to stake your WEBD without having to be online 24/7',
-    link: 'https://www.webdollar.fund',
-    keywords: 'mining, software, crypto, stake, pos, webdollar, fund'
-  });
+  get_transactions(function(err, res) {
+    var total_amount_staked = 0;
+    var deposits = res.length;
+
+    for (var i=0;i<deposits;i++) {
+      var t = res[i];
+
+      //total_amount_staked +=
+
+      console.log(t.fromAddress);
+    }
+
+    res.render('index', {
+      title: 'Start staking your WEBD, easy and convenient',
+      description: 'The first WebDollar fund that allows your to stake your WEBD without having to be online 24/7',
+      link: 'https://www.webdollar.fund',
+      keywords: 'mining, software, crypto, stake, pos, webdollar, fund',
+      deposits: deposits,
+
+    });
+  }, FOND_ADDRESS);
 });
 
 // The file is also accessible via /assets/sitemap.xml

@@ -1,0 +1,9 @@
+# Every block's reward is divided between the stakers, based on the amount they stake
+# Earnings are paid to the address that sent the stake periodically
+# Earnings Algo
+
+new block mined event
+  group transactions by transaction.from
+  # compute total_amount_staked
+  each grouped
+    earnings = 6000 / (total_amount_staked / group.amount)
